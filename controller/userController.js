@@ -9,9 +9,8 @@ const logInUser = async (req, res) =>{
         const findUser = await userModel.findOne({email})
 
         if(!findUser){
-            res.status(500).json({
-                status: `This user does not exist`,
-                message: error.message
+            res.json({
+                status: `This user does not exist`
             })
         }else{
             const passCheck = await bcrypt.compare(password, findUser.password)
@@ -22,7 +21,7 @@ const logInUser = async (req, res) =>{
                 })
             }else{
                 const token = jwt.sign({
-                    _id: find._id,
+                    _id: findUser._id,
                     email: findUser.email,
                     username: findUser.username,
                     member: findUser.member,

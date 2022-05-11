@@ -11,8 +11,8 @@ const storage = multer.diskStorage({
     }
   })
   
-  const userImage = multer({ storage: storage }).single('avatar')
+  const userImage = multer({ storage: storage }).single('image')
   const postImage = multer({ storage: storage }).single('avatar')
-  const itemmage = multer({ storage: storage }).single('ava')
+  const itemimage = multer({ storage: storage }).single('ava')
 
-  module.exports = {userImage, postImage, itemmage}
+  module.exports = {userImage, postImage, itemimage}

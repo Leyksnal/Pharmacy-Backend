@@ -7,6 +7,8 @@ app.use(express.json())
 app.use(cors())
 
 app.use('/user', require('./route/userRoute'))
+app.use('/user', require('./otherController/userPost'))
+app.use('/specialist', require('./otherController/specialisPost'))
 
 app.get('/', (req, res)=>{
     res.json({
